@@ -1,0 +1,566 @@
+<body>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+background: linear-gradient(25deg, rgb(0, 43, 56)3%, rgb(0, 9, 43)18%, black 30%);
+height: 100vh;
+overflow: hidden;
+}
+
+.rocket-container1 {
+    position: relative;
+    left: -250px;
+    bottom: -600px;
+    background-color: transparent;
+    animation: rumble 0.4s infinite;
+}
+.rocket-container2 {
+    position: relative;
+    animation: launch 11s infinite;
+}
+
+@keyframes launch{
+30% {
+    transform: translateY(-600px) translatex(200px);
+} 60% {
+    transform: translateY(-520px) translateX(160px);
+}
+100% {
+    transform: translateY(-1900px) translatex(700px);
+}
+}
+
+@keyframes rumble{
+    20% {
+        transform: translatex(2px) translatey(-7px);
+    }
+50% {
+        transform: translatex(-2px) translateY(-5px);
+    }
+    70% {
+        transform: translatex(3px) translateY(1px);
+    }
+}
+
+.body {
+    position: absolute;
+    left: 510px;
+    top: 16%;
+    height: 370px;
+    width: 160px;
+    background: linear-gradient(to right, rgb(92, 92, 92)30%, rgb(199, 199, 199) 80%, rgb(255,255,255)95%);
+    box-shadow: inset 10px 2px 14px 3px rgb(31, 31, 31);
+    border-radius: 50% 50% 10px 10px;
+    transform: rotate(25deg);
+    border-left: 3px rgb(29, 29, 29) solid;
+    overflow: hidden;
+}
+.body::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 90px;
+    width: 150px;
+    background:linear-gradient(110deg, rgb(80, 0, 0) 25%, rgb(223, 23, 23)50%, rgb(255, 128, 128)90%);
+    border-bottom: 3px rgb(128, 5, 5) solid;
+}
+
+.window {
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    height: 120px;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.753);
+    border-radius: 50%;
+    border: 7px solid rgb(194, 194, 194);
+    overflow: hidden;
+    z-index: -1;
+}
+img {
+    position: absolute;
+    left: -50px;
+    top:-30px;
+    height: 200px;
+  
+    z-index: -1;
+}
+.window::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(24, 87, 158, 0.144);
+    border-radius: 50%;
+    border: 10px solid rgb(32, 0, 0);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wing-left {
+    position: absolute;
+    top: 255px;
+    left: 520px;
+    height: 120px;
+    width: 130px;
+    background: linear-gradient(100deg, rgb(155, 0, 0) 60%, rgb(219, 29, 29) 80%, rgb(255, 58, 58)96%);
+    transform: rotate(25deg) skew(30deg);
+    border-radius: 7px;
+    z-index: -1;
+}
+
+.wing-right {
+    position: absolute;
+    top: 216px;
+    left: 431px;
+    height: 120px;
+    width: 130px;
+    background: linear-gradient(80deg, rgb(82, 0, 0) 5%, rgb(218, 14, 14) 30%, rgb(255, 147, 147)90%);
+    transform: rotate(25deg) skew(-30deg);
+    border-radius: 7px;
+    z-index: -1;
+}
+
+.blaster {
+    position: absolute;
+    top: 315px;
+    left: 450px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(56, 0, 0) 18%, rgb(223, 23, 23)60%,  rgb(255, 58, 58)96%);
+    border-bottom: 5px rgb(65, 0, 0) solid;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+.blaster::before {
+content: "";
+position: absolute;
+    bottom: -10px;
+    left: 38px;
+    height: 50px;
+    width: 55px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(68, 0, 0) 18%, rgb(223, 23, 23)60%,  rgb(255, 82, 82)96%);
+    border-bottom: 7px rgb(65, 0, 0) solid;
+    z-index: 0;
+}
+.blaster::after {
+    content: "";
+position: absolute;
+    bottom: -5px;
+    left: 80px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(51, 0, 0) 18%, rgb(223, 23, 23)80%,  rgb(255, 58, 58)96%);
+    border-bottom: 5px rgb(65, 0, 0) solid;
+    z-index: -1;
+}
+
+.fumes {
+    position: absolute;
+    left: 460px;
+    top: 370px;
+    height: 170px;
+    width: 50px;
+    background: linear-gradient(to bottom, rgb(2, 25, 230)30%, rgb(31, 210, 255), rgb(255,255,0));
+    filter: blur(18px);
+    border-radius: 10% 10% 50% 50%;
+    transform: rotate(25deg);
+    z-index: -2;
+    animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+    50% {
+        height: 90px;
+    }
+}
+
+.shooting-star1 {
+    position: absolute;
+    top: -50px;
+    right: 500px;
+    height: 90px;
+    width: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transform: rotate(25deg);
+    animation: shoot 1s infinite;
+    z-index: -3;
+}
+.shooting-star1::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    height: 110px;
+    width: 2px;
+    background-color: rgb(56, 248, 255);
+    border-radius: 50%;
+    animation: 1s shoot infinite;
+}
+.shooting-star1::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: 300px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(167, 252, 255);
+    border-radius: 50%;
+    animation: 2s shoot infinite;
+}
+
+@keyframes shoot {
+    100% {
+        transform: translateX(-2500px) translatey(6500px) rotate(25deg);
+    }
+}
+
+.shooting-star2 {
+    position: absolute;
+    top: -50px;
+    right: 200px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(255, 241, 41);
+    border-radius: 50%;
+    transform: rotate(25deg);
+    animation: shootl 1.7s infinite;
+    z-index: -3;
+}
+.shooting-star2::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 400px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(41, 255, 52);
+    border-radius: 50%;
+    animation: shootl 1.7s infinite;
+}
+.shooting-star2::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -300px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(41, 255, 52);
+    border-radius: 50%;
+    animation: shootl 1.7s infinite;
+}
+
+@keyframes shootl {
+    100% {
+        transform: translateX(-3000px) translatey(7000px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+  .rocket-container1 {
+   left: -580px
+  }
+}
+</style>
+<div class="shooting-star1"></div>
+<div class="shooting-star2"></div>
+    <div class="rocket-container1">
+        <div class="rocket-container2">
+        <div class="body">
+            <div class="window">
+                <img src="https://apprecs.org/gp/images/app-icons/300/40/rosalila.doge.lwpp.black.jpg" alt="doge in rocket">
+            </div>
+        </div>
+        <div class="wing-left"></div>
+        <div class="wing-right"></div>
+        <div class="blaster"></div>
+<div class="fumes"></div>
+</div>
+    </div>
+</body>
+
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+background: linear-gradient(25deg, rgb(0, 43, 56)3%, rgb(0, 9, 43)18%, black 30%);
+height: 100vh;
+overflow: hidden;
+}
+
+.rocket-container1 {
+    position: relative;
+    left: -250px;
+    bottom: -600px;
+    background-color: transparent;
+    animation: rumble 0.4s infinite;
+}
+.rocket-container2 {
+    position: relative;
+    animation: launch 11s infinite;
+}
+
+@keyframes launch{
+30% {
+    transform: translateY(-600px) translatex(200px);
+} 60% {
+    transform: translateY(-520px) translateX(160px);
+}
+100% {
+    transform: translateY(-1900px) translatex(700px);
+}
+}
+
+@keyframes rumble{
+    20% {
+        transform: translatex(2px) translatey(-7px);
+    }
+50% {
+        transform: translatex(-2px) translateY(-5px);
+    }
+    70% {
+        transform: translatex(3px) translateY(1px);
+    }
+}
+
+.body {
+    position: absolute;
+    left: 510px;
+    top: 16%;
+    height: 370px;
+    width: 160px;
+    background: linear-gradient(to right, rgb(92, 92, 92)30%, rgb(199, 199, 199) 80%, rgb(255,255,255)95%);
+    box-shadow: inset 10px 2px 14px 3px rgb(31, 31, 31);
+    border-radius: 50% 50% 10px 10px;
+    transform: rotate(25deg);
+    border-left: 3px rgb(29, 29, 29) solid;
+    overflow: hidden;
+}
+.body::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    height: 90px;
+    width: 150px;
+    background:linear-gradient(110deg, rgb(80, 0, 0) 25%, rgb(223, 23, 23)50%, rgb(255, 128, 128)90%);
+    border-bottom: 3px rgb(128, 5, 5) solid;
+}
+
+.window {
+    position: absolute;
+    top: 125px;
+    left: 20px;
+    height: 120px;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.753);
+    border-radius: 50%;
+    border: 7px solid rgb(194, 194, 194);
+    overflow: hidden;
+    z-index: -1;
+}
+img {
+    position: absolute;
+    left: -50px;
+    top:-30px;
+    height: 200px;
+  
+    z-index: -1;
+}
+.window::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(24, 87, 158, 0.144);
+    border-radius: 50%;
+    border: 10px solid rgb(32, 0, 0);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wing-left {
+    position: absolute;
+    top: 255px;
+    left: 520px;
+    height: 120px;
+    width: 130px;
+    background: linear-gradient(100deg, rgb(155, 0, 0) 60%, rgb(219, 29, 29) 80%, rgb(255, 58, 58)96%);
+    transform: rotate(25deg) skew(30deg);
+    border-radius: 7px;
+    z-index: -1;
+}
+
+.wing-right {
+    position: absolute;
+    top: 216px;
+    left: 431px;
+    height: 120px;
+    width: 130px;
+    background: linear-gradient(80deg, rgb(82, 0, 0) 5%, rgb(218, 14, 14) 30%, rgb(255, 147, 147)90%);
+    transform: rotate(25deg) skew(-30deg);
+    border-radius: 7px;
+    z-index: -1;
+}
+
+.blaster {
+    position: absolute;
+    top: 315px;
+    left: 450px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(56, 0, 0) 18%, rgb(223, 23, 23)60%,  rgb(255, 58, 58)96%);
+    border-bottom: 5px rgb(65, 0, 0) solid;
+    transform: rotate(25deg);
+    z-index: -1;
+}
+.blaster::before {
+content: "";
+position: absolute;
+    bottom: -10px;
+    left: 38px;
+    height: 50px;
+    width: 55px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(68, 0, 0) 18%, rgb(223, 23, 23)60%,  rgb(255, 82, 82)96%);
+    border-bottom: 7px rgb(65, 0, 0) solid;
+    z-index: 0;
+}
+.blaster::after {
+    content: "";
+position: absolute;
+    bottom: -5px;
+    left: 80px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100% 100% 10px 10px;
+    background:linear-gradient(92deg, rgb(51, 0, 0) 18%, rgb(223, 23, 23)80%,  rgb(255, 58, 58)96%);
+    border-bottom: 5px rgb(65, 0, 0) solid;
+    z-index: -1;
+}
+
+.fumes {
+    position: absolute;
+    left: 460px;
+    top: 370px;
+    height: 170px;
+    width: 50px;
+    background: linear-gradient(to bottom, rgb(2, 25, 230)30%, rgb(31, 210, 255), rgb(255,255,0));
+    filter: blur(18px);
+    border-radius: 10% 10% 50% 50%;
+    transform: rotate(25deg);
+    z-index: -2;
+    animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+    50% {
+        height: 90px;
+    }
+}
+
+.shooting-star1 {
+    position: absolute;
+    top: -50px;
+    right: 500px;
+    height: 90px;
+    width: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transform: rotate(25deg);
+    animation: shoot 1s infinite;
+    z-index: -3;
+}
+.shooting-star1::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 400px;
+    height: 110px;
+    width: 2px;
+    background-color: rgb(56, 248, 255);
+    border-radius: 50%;
+    animation: 1s shoot infinite;
+}
+.shooting-star1::after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: 300px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(167, 252, 255);
+    border-radius: 50%;
+    animation: 2s shoot infinite;
+}
+
+@keyframes shoot {
+    100% {
+        transform: translateX(-2500px) translatey(6500px) rotate(25deg);
+    }
+}
+
+.shooting-star2 {
+    position: absolute;
+    top: -50px;
+    right: 200px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(255, 241, 41);
+    border-radius: 50%;
+    transform: rotate(25deg);
+    animation: shootl 1.7s infinite;
+    z-index: -3;
+}
+.shooting-star2::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: 400px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(41, 255, 52);
+    border-radius: 50%;
+    animation: shootl 1.7s infinite;
+}
+.shooting-star2::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -300px;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(41, 255, 52);
+    border-radius: 50%;
+    animation: shootl 1.7s infinite;
+}
+
+@keyframes shootl {
+    100% {
+        transform: translateX(-3000px) translatey(7000px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+  .rocket-container1 {
+   left: -580px
+  }
+}
+</style>
